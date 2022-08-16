@@ -28,22 +28,22 @@ Create a Travel-app class and automate testing with data driven from SQL databas
 - Name VARCHAR(100)
 
 **To create the owner table**<br>
-'CREATE TABLE Owner (ID CHAR(36), Town VARCHAR(100), Name VARCHAR(100), PRIMARY KEY(ID));'
+`CREATE TABLE IF NOT EXISTS Owner (ID CHAR(36), Town VARCHAR(100), Name VARCHAR(100), PRIMARY KEY(ID));`
 
 **To create the animal table**<br>
-'CREATE TABLE Animal (Hunger INT, ID CHAR(36), Name VARCHAR(100), OwnerID CHAR(36), Species CHAR(1), PRIMARY KEY(ID), FOREIGN KEY(OwnerID) REFERENCES Owner(ID));'
+`CREATE TABLE Animal (Hunger INT, ID CHAR(36), Name VARCHAR(100), OwnerID CHAR(36), Species CHAR(1), PRIMARY KEY(ID), FOREIGN KEY(OwnerID) REFERENCES Owner(ID));`
 
 **To insert a new owner row** <br>
-'INSERT INTO Owner(ID, Name, Town) VALUES ('11f3b90b-8214-4ec6-8cba-f1156d4e87f9', 'Junaid', 'Manchester');'
+`INSERT INTO Owner(ID, Name, Town) VALUES ('11f3b90b-8214-4ec6-8cba-f1156d4e87f9', 'Junaid', 'Manchester');`
 
 **To insert a new cat row** <br>
-'INSERT INTO Animal (Hunger, ID, Name, OwnerID, Species) VALUES (0, 'b85ac401-932f-4997-8c99-87ddac0b7ec9', 'Cairo', '11f3b90b-8214-4ec6-8cba-f1156d4e87f9', 'C');'
+`INSERT INTO Animal (Hunger, ID, Name, OwnerID, Species) VALUES (0, 'b85ac401-932f-4997-8c99-87ddac0b7ec9', 'Cairo', '11f3b90b-8214-4ec6-8cba-f1156d4e87f9', 'C');`
 
 **To insert a new dog row** <br>
-'INSERT INTO Animal (Hunger, ID, Name, OwnerID, Species) VALUES (0, '4dc49a68-0471-4c49-8c96-b2f5ddf0c7cd', 'Rome', '11f3b90b-8214-4ec6-8cba-f1156d4e87f9', 'D');'
+`INSERT INTO Animal (Hunger, ID, Name, OwnerID, Species) VALUES (0, '4dc49a68-0471-4c49-8c96-b2f5ddf0c7cd', 'Rome', '11f3b90b-8214-4ec6-8cba-f1156d4e87f9', 'D');`
 
 **To query an animal**<br>
-'SELECT Hunger, ID, Species FROM Animal WHERE Name = 'Cairo';'
+`SELECT Hunger, ID, Species FROM Animal WHERE Name = 'Cairo';`
 
 **To query all pets for an owner**
-'SELECT animal.Name, animal.Species FROM Animal animal, Owner owner WHERE owner.Name = 'Junaid''
+`SELECT animal.Name, animal.Species FROM Animal animal, Owner owner WHERE owner.Name = 'Junaid'`
